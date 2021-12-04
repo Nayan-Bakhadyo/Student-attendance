@@ -1,0 +1,38 @@
+{% extends 'base/base.html' %}
+
+{% block 'title' %} Dashboard {% endblock %}
+
+{% block 'body' %}
+<section class="banner w3pvt-banner" id="home">
+     <div class="container" style="padding:150px 0px;">
+        <div class="col-md-9">
+        {% include 'component/message.html' %}
+            {% for b in Detected %}
+            <h5 style="color:#fff;">
+                <table class="table table-dynamic" style="border:2px;">
+                    <thead>
+                        
+                        <th>User ID</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </thead>
+                    <tbody>
+                        <td>{{b.user_id}}</td>
+                        <td>{{b.date}}</td>
+                        <td>{{b.time}}</td>
+                    </tbody>
+                </table>
+                
+            </h5>
+            
+          
+            <hr/>
+            {% endfor %}
+        </div>
+     </div>
+    </section>
+{% endblock %}
+
+<!-- User_ID : {{b.user_id}}<br>
+Date : {{b.date}}<br>
+Time : {{b.time}}<br> -->

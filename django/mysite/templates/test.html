@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block 'title' %} Dashboard {% endblock %}
+
+{% block 'body' %}
+<section class="banner w3pvt-banner" id="home">
+     <div class="container" style="padding:150px 0px;">
+        <div class="col-md-9">
+        {% include 'component/message.html' %}
+            {% for b in Detected %}
+            <h3 style="color:#fff;">
+                <img src="{{MEDIA_URL}}{{b.image.url}}" style="width:350px; height:auto;"><br>
+                User_ID : {{b.User_ID}}<br>
+                Date : {{b.Date}}<br>
+                Time : {{b.Time}}<br>
+            </h3>
+            <h5 style="color:#fff;">Description : {{b.description}}</h5>
+<hr/>
+            <a href="{% url 'edit-detail' b.id %}" class="btn btn-success">Edit</a>
+            <a href="{% url 'delete-detail' b.id %}" class="btn btn-danger">Delete</a>
+            <hr/>
+            {% endfor %}
+        </div>
+     </div>
+    </section>
+{% endblock %}
