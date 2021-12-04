@@ -118,9 +118,6 @@ def detection(request):
                
             else:
                 print("Data Exists")
-               
-                
-            
             #put value in database along with datetime.
 
         resized_img=cv2.resize(test_img,(1000,700))
